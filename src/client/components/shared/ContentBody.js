@@ -4,7 +4,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import WorkOrder from '../work-order/Root';
+import WorkOrder from '../../containers/work-order/WorkOrder';
 import WorkOrderDetail from '../work-order-detail/Table';
 
 export default class ContentBody extends Component {

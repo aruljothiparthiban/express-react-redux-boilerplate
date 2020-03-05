@@ -4,7 +4,10 @@
   "description": "Express React Redux Boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development",
+    "dev-server": "nodemon --exec babel-node -- ./src/server/index.js",
+    "dev-client": "webpack --mode development --watch",
+    "dev" : "concurrently npm:dev-*",
+    "local": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "start": "node ./src/server/index.js"
   },
@@ -40,9 +43,16 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@babel/node": "^7.8.7",
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "awilix": "^4.2.5",
+    "awilix-express": "^3.0.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "http-status-codes": "^1.4.0",
+    "joi": "^14.3.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2"
