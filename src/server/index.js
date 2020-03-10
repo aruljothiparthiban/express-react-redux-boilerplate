@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import { scopePerRequest } from 'awilix-express';
 import path from 'path';
 import routes from './routes';
@@ -10,6 +11,7 @@ import ResponseHelper from './helpers/response.helper';
 const app = express();
 
 new ResponseHelper().init(app);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(scopePerRequest(container));
 app.use((req, res, next) => {

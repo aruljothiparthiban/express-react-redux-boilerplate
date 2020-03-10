@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import Pagination from '../shared/Pagination';
 
 export default class Header extends Component {
 
     getStartIndex() {
-        let { pageIndex, pageSize } = this.props;
+        let { workOrder } = this.props;
+        let { pageIndex, pageSize } = workOrder;
         return ((pageIndex - 1) * pageSize) + 1;
     }
 
-    getEndIndex(){        
-        let { pageIndex, pageSize, count } = this.props;
+    getEndIndex(){
+        let { workOrder } = this.props;
+        let { pageIndex, pageSize, count } = workOrder;
         let index = (pageIndex * pageSize);
         if (index < count) {
             return index;
@@ -17,7 +20,8 @@ export default class Header extends Component {
     }
 
     renderPageSummary() {
-        let { count } = this.props;
+        let { workOrder } = this.props;
+        let { count } = workOrder;
         if(count>0) {
             return (
                 <span>
@@ -29,13 +33,14 @@ export default class Header extends Component {
     }
     
     render() {
+        let { workOrder } = this.props;
         return (
             <div className="card">
                 <div className="card-header d-sm-flex align-items-start justify-content-between">
                     <h6 className="lh-5 mg-b-0">Browser Used By Users</h6>
                     <a href="" className="tx-13 link-03">Mar 01 - Mar 20, 2019 <i className="icon ion-ios-arrow-down"></i></a>
                 </div>
-                <div className="card-body pd-y-15 pd-x-10">
+                <div className="card-body pd-y-0 pd-x-0">
 
                     <div className="table-responsive">
                         <table className="table table-dashboard mg-b-0">
@@ -50,7 +55,7 @@ export default class Header extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.items.map(p => {
+                                {workOrder.items.map(p => {
                                     return (
                                         <tr key={p._id}>
                                             <td>{p.WO_key}</td>
@@ -72,7 +77,11 @@ export default class Header extends Component {
                                         </p>
                                     </td>
                                     <td colSpan="3">
-                                        <Pagination {...this.props} />
+                                        <Pagination 
+                                            count={workOrder.count}
+                                            pageSize={workOrder.pageSize}
+                                            onPageChange={this.props.onPageChange}
+                                        />
                                     </td>
                                 </tr>
                             </tfoot>

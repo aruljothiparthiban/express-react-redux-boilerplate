@@ -1,4 +1,5 @@
 import workOrders from '../data/work-orders';
+import moment from 'moment';
 
 class WorkOrderService {
 
@@ -19,6 +20,14 @@ class WorkOrderService {
             items,
             count
         });
+    }
+
+    getAllWorkOrders() {
+        let items = workOrders.map(p => {
+            p.Start_date = moment(p.Start_date, 'YYYY-MM-DD').format('DD-MM-YYYY');
+            return p;
+        });
+        return Promise.resolve(items);
     }
 
     getOverdueCount() {

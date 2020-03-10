@@ -6,7 +6,7 @@
   "scripts": {
     "dev-server": "nodemon --exec babel-node -- ./src/server/index.js",
     "dev-client": "webpack --mode development --watch",
-    "dev" : "concurrently npm:dev-*",
+    "dev": "concurrently npm:dev-*",
     "local": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "start": "node ./src/server/index.js"
@@ -47,14 +47,24 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "awilix": "^4.2.5",
     "awilix-express": "^3.0.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
+    "exceljs": "^3.8.1",
     "express": "^4.17.1",
     "express-joi-validation": "^4.0.3",
     "http-status-codes": "^1.4.0",
+    "immer": "^6.0.1",
     "joi": "^14.3.1",
+    "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-router-dom": "^5.1.2"
+    "react-paginate": "^6.3.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "tempfile": "^3.0.0"
   }
 }

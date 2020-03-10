@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import Header from './components/shared/Header';
 import ContentBody from './components/shared/ContentBody';
 import Footer from './components/shared/Footer';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
+import store from './store';
 
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
@@ -16,13 +18,15 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
-                <div>
-                    <Header />
-                    <ContentBody />
-                    <Footer />
-                </div>
-            </Router>
+            <Provider store={store}>
+                <Router>
+                    <div>
+                        <Header />
+                        <ContentBody />
+                        <Footer />
+                    </div>
+                </Router>
+            </Provider>
         );
     }
 }
